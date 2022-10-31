@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+DIR="$HOME/.config/i3"
+
+rofi -no-lazy-grab -show window -theme $DIR/rofi/themes/window.rasi

@@ -1,0 +1,480 @@
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/bna]
+type = custom/text
+
+content = " NA"
+content-prefix = 
+content-prefix-font = 2
+content-prefix-foreground = ${color.BG}
+content-background = ${color.BGL}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/backlight]
+type = internal/xbacklight
+
+card = intel_backlight
+
+format = <ramp> <label>
+format-background = ${color.BGL}
+
+label = %percentage%%
+label-foreground = ${color.BG}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-font = 2
+ramp-foreground = ${color.BG}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/brightness]
+type = internal/backlight
+
+card = ${system.sys_graphics_card}
+
+enable-scroll = true
+
+format = <ramp> <label>
+format-background = ${color.BGL}
+
+label = %percentage%%
+label-foreground = ${color.BG}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-font = 2
+ramp-foreground = ${color.BG}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = ${system.sys_battery}
+adapter = ${system.sys_adapter}
+
+poll-interval = 2
+
+time-format = %H:%M
+
+format-charging = <animation-charging> <label-charging>
+format-charging-prefix = " "
+format-charging-prefix-font = 1
+format-charging-prefix-foreground = ${color.RED}
+
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging = %percentage%%
+label-discharging = %percentage%%
+
+format-full = <label-full>
+format-full-prefix = " "
+format-full-prefix-font = 2
+format-full-prefix-foreground = ${color.RED}
+label-full = %percentage%%
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${color.YELLOW}
+ramp-capacity-font = 2
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${color.GREEN}
+animation-charging-font = 2
+animation-charging-framerate = 700
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+
+enable-click = true
+enable-scroll = true
+wrapping-scroll = false
+reverse-scroll = false
+
+fuzzy-match = true
+
+ws-icon-0 = 1;1
+ws-icon-1 = 2;2
+ws-icon-2 = 3;3
+ws-icon-3 = 4;4
+ws-icon-4 = 5;5
+format = <label-state><label-mode>
+format-background = ${color.BGL}
+
+label-mode = %mode%
+label-mode-padding = 1
+label-mode-background = ${color.YELLOW}
+label-mode-foreground = ${color.BGL}
+
+label-focused = %icon%
+label-focused-foreground = ${color.BGL}
+label-focused-background = ${color.BG}
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${color.BG}
+label-unfocused-background = ${color.BGL}
+
+label-visible = %icon%
+label-visible-foreground = ${color.BGL}
+label-visible-background = ${color.GREEN}
+
+label-urgent = %icon%
+label-urgent-foreground = ${color.BGL}
+label-urgent-background = ${color.BG}
+
+label-focused-padding = 1
+label-unfocused-padding = 1
+label-visible-padding = 1
+label-urgent-padding = 1
+
+label-separator = |
+label-separator-padding = 0
+label-separator-foreground = ${color.BGL}
+label-separator-background = ${color.BGL}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/cpu]
+type = internal/cpu
+
+interval = 0.5
+
+format = <label>
+format-prefix = 
+format-prefix-font = 2
+format-prefix-foreground = ${color.YELLOW}
+
+label = " %percentage%%"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/date]
+type = internal/date
+
+interval = 1.0
+
+time = %I:%M %p
+time-alt = %b %d, %G
+
+format = <label>
+format-prefix = " "
+format-prefix-font = 2
+format-prefix-foreground = ${color.BG}
+format-background = ${color.BGL}
+
+label = %time%
+label-font = 4
+label-foreground = ${color.BG}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/filesystem]
+type = internal/fs
+
+interval = 10
+
+fixed-values = true
+
+format-mounted = <label-mounted>
+format-mounted-prefix = 
+format-mounted-prefix-font = 2
+format-mounted-prefix-foreground = ${color.PURPLE}
+
+format-unmounted = <label-unmounted>
+format-unmounted-prefix = 
+format-unmounted-prefix-font = 2
+format-unmounted-prefix-foreground = ${color.PURPLE}
+
+label-mounted = " %free%"
+label-unmounted = " %mountpoint%: NM"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+format = <label>
+format-prefix = 
+format-prefix-font = 2
+format-prefix-foreground = ${color.BG}
+format-prefix-background = ${color.BGL}
+
+label = " %mb_used%"
+label-foreground = ${color.BG}
+label-background = ${color.BGL}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/mpd]
+type = internal/mpd
+
+interval = 2
+
+format-online-background = ${color.BGL}
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+
+format-offline = <label-offline>
+format-offline-prefix = " "
+format-offline-background = ${color.BGL}
+
+label-song =  "%artist% - %title%"
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+label-offline = "Offline"
+
+icon-play = 
+icon-play-font = 2
+icon-play-foreground = ${color.GREEN}
+icon-pause = 
+icon-pause-font = 2
+icon-pause-foreground = ${color.RED}
+icon-stop = 
+icon-stop-foreground = ${color.RED}
+icon-prev = 玲
+icon-prev-font = 1
+icon-prev-foreground = ${color.CYAN}
+icon-next = 怜
+icon-next-font = 1
+icon-next-foreground = ${color.CYAN}
+
+;;-----------
+
+[module/song]
+type = internal/mpd
+
+interval = 2
+
+format-online = <label-song>
+
+format-playing = ${self.format-online}
+format-paused = ${self.format-online}
+format-stopped = ${self.format-online}
+
+label-song =  "%artist% - %title%"
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/ethernet]
+type = internal/network
+interface = ${system.sys_network_interface}
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <label-connected>
+format-connected-prefix = "歷 "
+format-connected-prefix-foreground = ${color.PURPLE}
+format-connected-prefix-font = 2
+format-connected-background = ${color.BG}
+format-connected-padding = 1
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "轢 "
+format-disconnected-prefix-font = 2
+format-disconnected-foreground = ${color.FGA}
+format-disconnected-background = ${color.BG}
+format-disconnected-padding = 1
+
+label-connected = "%{A1:~/.config/i3/rofi/bin/network_menu &:}%downspeed%, %upspeed%%{A}"
+label-disconnected = "%{A1:~/.config/i3/rofi/bin/network_menu &:}Offline%{A}"
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+[module/wired-network]
+type = internal/network
+interface = wlan0
+
+[module/wireless-network]
+type = internal/network
+interface = wlan0
+
+; Normal Module
+[module/network]
+type = internal/network
+interface = wlan0
+
+interval = 1.0
+accumulate-stats = true
+unknown-as-up = true
+
+format-connected = <ramp-signal><label-connected>
+
+format-disconnected = <label-disconnected>
+format-disconnected-prefix = "睊 "
+format-disconnected-prefix-font = 2
+format-disconnected-foreground = ${color.BG}
+format-disconnected-background = ${color.BGL}
+
+label-connected = "%{A1:~/.config/i3/rofi/bin/network_menu &:}%essid%%{A}"
+label-connected-foreground = ${color.BG}
+label-connected-background = ${color.BGL}
+
+label-disconnected = "%{A1:~/.config/i3/rofi/bin/network_menu &:}Offline%{A}"
+label-disconnected-foreground = ${color.BG}
+label-disconnected-background = ${color.BGL}
+
+ramp-signal-0 = 
+ramp-signal-1 = 
+ramp-signal-2 = 
+ramp-signal-3 = 
+ramp-signal-4 = 
+ramp-signal-foreground = ${color.BG}
+ramp-signal-background = ${color.BGL}
+ramp-signal-font = 2
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/volume]
+type = internal/pulseaudio
+
+sink = alsa_output.pci-0000_12_00.3.analog-stereo
+
+use-ui-max = false
+
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+format-volume-background = ${color.BGL}
+
+format-muted = <label-muted>
+format-muted-prefix = 
+format-muted-prefix-font = 2
+format-muted-background = ${color.BGL}
+format-muted-foreground = ${color.BG}
+
+label-volume = %percentage%%
+label-volume-foreground = ${color.BG}
+
+label-muted = "Mute"
+label-muted-foreground = ${color.BG}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+ramp-volume-3 = 
+ramp-volume-4 = 
+ramp-volume-5 = 
+ramp-volume-6 = 
+ramp-volume-7 = 
+ramp-volume-8 = 
+ramp-volume-9 = 
+ramp-volume-font = 2
+ramp-volume-foreground = ${color.BG}
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/temperature]
+type = internal/temperature
+
+interval = 0.5
+
+thermal-zone = 0
+
+warn-temperature = 60
+units = true
+
+format = <ramp> <label>
+
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+
+label-warn = "%temperature-c%"
+label-warn-foreground = ${color.RED}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-5 = 
+ramp-6 = 
+ramp-7 = 
+ramp-8 = 
+ramp-9 = 
+ramp-font = 2
+ramp-foreground = ${color.YELLOW}
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/menu]
+type = custom/text
+
+content = " "
+content-font = 5
+;content = " "
+;content-font = 3
+content-foreground = ${color.GREEN}
+content-padding = 0
+
+click-left = ~/.config/i3/rofi/bin/launcher
+;;click-middle = path_to_script
+;;click-right = path_to_script
+
+;;scroll-up = path_to_script
+;;scroll-down = path_to_script
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+
+[module/sysmenu]
+type = custom/text
+
+content = 襤
+content-font = 3
+content-background = ${color.BGL}
+content-foreground = ${color.BG}
+content-padding = 0
+
+click-left = ~/.config/i3/rofi/bin/powermenu
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+;;	    __________  ______
+;;	   / ____/ __ \/ ____/
+;;	  / __/ / / / / /_    
+;;	 / /___/ /_/ / __/    
+;;	/_____/\____/_/       
+;;
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
